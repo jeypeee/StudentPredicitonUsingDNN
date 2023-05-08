@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='css/styles.css') }}">
+    <title>Student Performance Prediction</title>
+</head>
+<body>
+    <div class="container">
+
+        <aside>
+
+            <div class="top">
+                <div class="logo">
+                    <a href="{{url_for('index')}}"><img src="static/img/ccs logo.png" alt=""></a>
+                    <a href="{{url_for('index')}}"><p>Student Performance Prediction</p></a>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>   
+            </div>
+
+            <div class="sidebar">
+                <div>
+                    <a href="">
+                        <span class="material-icons-sharp">insights</span>
+                        <h3>Analytics</h3>
+                    </a>
+                </div>
+                
+                <div class="dropdown">
+                    <a href="">
+                        <span class="material-icons-sharp">start</span>
+                        <h3 class="dropbtn">Start Prediction</h3></a>
+                            <div class="dropdown-content">
+                                <a class="drp-cnt" href="{{url_for('comprog_prediction')}}">Computer Programming</a>
+                                <a class="drp-cnt" href="{{url_for('oop_prediction')}}">Object Oriented Programming</a>
+                                <a class="drp-cnt" href="{{url_for('intro_prediction')}}">Introduction to Computing</a>
+                            </div>
+    
+                   
+                    
+                </div>
+                
+                <div class="home-btn">
+                    <a href="{{url_for('index')}}">
+                        <span class="material-icons-sharp">home</span>
+                        <h3>Home</h3>
+                    </a>
+                </div>
+                
+
+            </div>
+        </aside>
+         <!--=========================================== END OF ASIDE ==================================-->
+        <main>
+            <div id="select-course">
+                <div class="arrow-left">
+                    <a href="{{url_for('intro_analytics')}}"><span class="material-icons-sharp">keyboard_arrow_left</span></a>
+                </div>
+                <div class="select-analytics"><h2>Object Oriented Programming</h2></div>
+                <div class="arrow-right">
+                    <a href="{{url_for('home')}}"><span class="material-icons-sharp">keyboard_arrow_right</span></a>
+                </div>
+            </div>
+
+            <div class="graphBox">
+                <div class="box">
+                    <h3>Sex</h3>
+                    <canvas id="gender" max></canvas>
+                    <h4 style="margin-top: 10px;">Male: 70 - Female: 38</h4>
+                    
+                </div>
+                <div class="box">
+                    <h3>College Year Started</h3>
+                    <canvas id="cys"></canvas>
+                    <h4 style="margin-top: 10px;">2020: 108</h4>
+                </div>
+                <div class="box">
+                    <h3>Course</h3>
+                    <canvas id="course"></canvas>
+                    <h4 style="margin-top: 10px;">BSIT: 73 - BSCS: 35</h4>
+                </div>
+            </div>
+            
+            <div class="bottom-graph-wrapper">
+            <div class="graph-bar">
+                <div class="box">
+                    <h3>Socioeconomic Status</h3>
+                    <canvas id="ss" max></canvas>
+                    
+                </div>
+            </div>
+
+            <div class="graph-bar1">
+                <div class="box">
+                    <h3>Student Details</h3>
+                    <canvas id="working-scholar-hal" max></canvas>
+                    
+                </div>
+            </div>
+            </div>
+        </main>
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.2/dist/chart.umd.min.js"></script>
+    
+    <script src="static/js/oop_chart.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/styles.css') }} ">
+    <title>Student Performance Prediction</title>
+</head>
+<body>
+    <div class="container">
+
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <a href="{{url_for('index')}}"><img src="static/img/ccs logo.png" alt=""></a>
+                    <a href="{{url_for('index')}}"><p>Student Performance Prediction</p></a>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>   
+            </div>
+
+            <div class="sidebar">
+                <div>
+                    <a href="{{url_for('home')}}">
+                        <span class="material-icons-sharp">insights</span>
+                        <h3>Analytics</h3>
+                    </a>
+                </div>
+                
+
+                <div class="dropdown">
+                    <a href="">
+                        <span class="material-icons-sharp">start</span>
+                        <h3 class="dropbtn">Start Prediction</h3></a>
+                            <div class="dropdown-content">
+                                <a class="drp-cnt" href="{{url_for('comprog_prediction')}}">Computer Programming</a>
+                                <a class="drp-cnt" href="{{url_for('oop_prediction')}}">Object Oriented Programming</a>
+                                <a class="drp-cnt" href="{{url_for('intro_prediction')}}">Introduction to Computing</a>
+                            </div>
+    
+               
+                    
+                </div>
+                <div class="bck-btn">
+                    <a class="back-btn" href="{{url_for('home')}}">
+                        <span class="material-icons-sharp">arrow_back</span>
+                        <h3>Back</h3>
+                    </a>
+                </div>
+                
+
+            </div>
+        </aside>
+         <!--=========================================== END OF ASIDE ==================================-->
+         <main>
+            <div class="title-container">
+                <h2>Object Oriented Programming</h2>
+            </div>
+            
+
+            <div class="prd-container" >
+                <div class="title-wrapper">
+                    <div class="title"><h2>Student Details</h2></div>
+                    <div class="refresh"><a href="{{url_for('oop_prediction')}}"><span class="material-icons-sharp ref-icon">refresh</span></a></div>
+                </div>
+                
+                
+                <div class="content">
+                        <form action="{{ url_for('predict1') }}" method = "POST" >
+                            <div class="student-details">
+                                <div class="form-group">
+                                    <label for="sex">Sex</label><br>
+                                        <select name="sex" id="sex" required>
+                                            <option disabled selected hidden>Select</option>
+                                            <option {{"selected" if request.form['sex'] == "Male" else "" }}>Male</option>
+                                            <option {{"selected" if request.form['sex'] == "Female" else "" }}>Female</option>
+                                        </select>
+                                </div>
+        
+                                <div class="form-group">
+                                    <p>Age<br>
+                                        <input value="{{ request.form['age'] }}"  type="number" name="age" id="" required>
+                                    </p>
+                                </div>
+                                       
+                                <div class="form-group">
+                                    <label for="scholar">Scholar</label><br>
+                                        <select name="scholar" id="scholar" required>
+                                            <option disabled selected hidden>Select</option>
+                                            <option {{"selected" if request.form['scholar'] == "No" else "" }}>No</option>
+                                            <option {{"selected" if request.form['scholar'] == "Yes" else "" }}>Yes</option>
+                                        </select>
+                                </div>
+                                        
+                                <div class="form-group">
+                                    <label for="se_status">Socioeconomic Status</label><br>
+                                        <select name="se_status" id="se_status" required>
+                                            <option disabled selected hidden>Select</option>
+                                            <option {{"selected" if request.form['se_status'] == "Low - ₱9,520-₱19,040" else "" }}>Low - ₱9,520-₱19,040</option>
+                                            <option {{"selected" if request.form['se_status'] == "Lower Middle - ₱19,040-₱38,040" else "" }}>Lower Middle - ₱19,040-₱38,040</option>
+                                            <option {{"selected" if request.form['se_status'] == "Middle - 38,080-₱66,640" else "" }}>Middle - 38,080-₱66,640</option>
+                                            <option {{"selected" if request.form['se_status'] == "Upper Middle - ₱66,640-₱114,240" else "" }}>Upper Middle - ₱66,640-₱114,240</option>
+                                        </select>
+                                </div>
+                                        
+                                <div class="form-group">
+                                    <label for="working">Working Student</label><br>
+                                        <select name="working" id="working" required>
+                                            <option disabled selected hidden>Select</option>
+                                            <option {{"selected" if request.form['working'] == "No" else "" }}>No</option>
+                                            <option {{"selected" if request.form['working'] == "Yes" else "" }}>Yes</option>
+                                        </select>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="laptop/pc">Has a Laptop/PC</label><br>
+                                        <select name="laptop/pc" id="laptop/pc" required>
+                                            <option disabled selected hidden>Select</option>
+                                            <option {{"selected" if request.form['laptop/pc'] == "No" else "" }}>No</option>
+                                            <option {{"selected" if request.form['laptop/pc'] == "Yes" else "" }}>Yes</option>
+                                        </select>
+                                </div>
+                                        
+                                        <div class="form-group">
+                                            <p>Midterm Lecture Quiz<br>
+                                                <input placeholder="30%" value="{{ request.form['Lec_Quiz'] }}" type="number" name="Lec_Quiz" id="Lec_Quiz" required>
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <p>Midterm Lecture Seatwork<br>
+                                                <input placeholder="30%" value="{{ request.form['Lec_Seat'] }}" type="number" name="Lec_Seat" id="Lec_Seat" required>
+                                            </p>
+                                        </div>
+        
+                                        <div class="form-group">
+                                            <p>Midterm Lecture Exam<br>
+                                                <input placeholder="40%" value="{{ request.form['Lec_Exam'] }}" type="number" name="Lec_Exam" id="Lec_Exam" required>
+                                            </p>
+                                        </div>
+                                                
+                                        <div class="form-group">
+                                            <p>Midterm Laboratory Activity<br>
+                                                <input placeholder="40%" value="{{ request.form['Lab_Act'] }}" type="number" name="Lab_Act" id="Lab_Act" required>
+                                            </p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <p>Midterm Laboratory Exam<br>
+                                                <input placeholder="60%" value="{{ request.form['Lab_Exam'] }}" type="number" name="Lab_Exam" id="Lab_Exam" required>
+                                            </p>
+                                        </div>
+
+                                        <div class="prd-btn-wrapper">
+                                            <button type="submit" class="prd-btn">Predict</button>
+                                        </div>
+                        </form>
+
+                                
+                    </div>
+            
+                    <div class="pred-output">
+                        <div>
+                        {% if prediction %}
+                                {% if prediction >= 0.5 %}
+                                    <p style="font-size:18px;color:green;"> The student has a {{ prediction*100 }}% chance of passing this subject </p>
+                                    {% elif prediction < 0.5 %}
+                                        <p style="font-size:18px;color:red;"> This student is at risk and has a {{ (prediction*100-100)*(-1)}}% chance of failing this subject </p>
+                                    {% endif %}
+                        {% endif %}
+                        </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href=" {{ url_for ('static', filename='css/styles.css') }} ">
+    <title>Student Performance Prediction</title>
+
+</head>
+
+<body> 
+    
+
+      <div class="container-login">
+        <nav>
+            
+            <ul>
+                <div class="toggler-about">
+                    
+                    <div class="theme-toggler">
+                        <span class="material-icons-sharp active">light_mode</span>
+                        <span class="material-icons-sharp">dark_mode</span>
+                    </div>
+                </div>
+                
+                <div class="logtog">
+                    <div><img class="logo-login" src="{{ url_for ('static', filename='img/ccs logo1.png') }} " alt=""></div>
+                    
+                </div>
+                
+                
+            </ul>
+        </nav>
+
+        
+            <div class="front-page">
+                <div class="left">
+                    <h1 class="titles-login">Student <br> Academic <br> Performance <br> Prediction</h1>
+
+                    <div class="login">
+                    <a href="{{url_for('home')}}" class="prd-btn-login">Start</a> 
+                    </div>
+
+                </div>
+                <img class="pic1" src="static/img/pic1.png" alt="p">
+            </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/changetheme.js')}} "></script>
+
+</body>
+</html>

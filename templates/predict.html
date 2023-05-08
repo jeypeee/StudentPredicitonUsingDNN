@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% from "base.html" import render_field %}
+
+{%block content%}
+<div class="container w-auto mt-2">
+    <form method="POST" action="" autocomplete="off">
+        {{form.hidden_tag()}}
+        <fieldset>
+            <div class="card">
+                <div class="card-header"><h3>STUDENT PERFORMANCE PREDICTION</h3></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-xs-1 col-sm-1 col-lg-1">
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.gender,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.age,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.socioeconomic_status,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.working_student,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.scholar,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-lg-1">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1 col-sm-1 col-lg-1">
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.internet_status,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.mid_lecture_quiz,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.mid_lecture_exam,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.mid_laboratory_quiz,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-lg-2">
+                            {{render_field(form.mid_laboratory_exam,class="form-control form-control-md")}}
+                        </div>
+                        <div class="col-xs-1 col-sm-1 col-lg-1">
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-xs-1 col-sm-1 col-lg-1">{{form.submit(class='btn btn-primary')}}
+                        </div>
+                        <div class="col-xs-5 col-sm-5 col-lg-5">
+                            {%if pred==0%}
+                                <div class="alert alert-success" role="alert">not at risk.</div>
+                            {%elif pred==1%}
+                                <div class="alert alert-danger" role="alert">at risk.</div>
+                            {%endif%}
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-lg-6">
+                            {{render_field(form.predresult,class="form-control form-control-md")}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{%endblock%}
